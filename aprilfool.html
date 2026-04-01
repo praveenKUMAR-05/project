@@ -2,177 +2,70 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SecureScan v3.2</title>
-
+<title>April Fool 😜</title>
 <style>
   body {
     margin: 0;
-    background: #0b0f14;
-    color: #00ff9c;
-    font-family: "Courier New", monospace;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   }
 
-  #app {
-    padding: 20px;
+  .card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: pop 0.6s ease;
+  }
+
+  @keyframes pop {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
   }
 
   h1 {
-    font-size: 20px;
-    color: #00e6ff;
+    font-size: 2.5rem;
+    color: #ff4e50;
   }
 
-  #terminal {
+  p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+
+  button {
     margin-top: 20px;
-    height: 300px;
-    overflow: hidden;
-    border: 1px solid #00ff9c;
-    padding: 10px;
-    background: black;
-  }
-
-  .line {
-    margin: 5px 0;
-    font-size: 14px;
-  }
-
-  #progressBar {
-    width: 100%;
-    height: 20px;
-    background: #111;
-    margin-top: 20px;
-    border: 1px solid #00ff9c;
-  }
-
-  #progress {
-    height: 100%;
-    width: 0%;
-    background: #00ff9c;
-    transition: width 0.5s;
-  }
-
-  #warning {
-    color: red;
-    font-weight: bold;
-    display: none;
-    margin-top: 20px;
-  }
-
-  #final {
-    display: none;
-    text-align: center;
-    margin-top: 100px;
-    font-size: 30px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #ff4e50;
     color: white;
+    cursor: pointer;
+    font-size: 1rem;
   }
 
-  .blink {
-    animation: blink 0.5s infinite;
-  }
-
-  @keyframes blink {
-    50% { opacity: 0.2; }
+  button:hover {
+    background: #ff2e30;
   }
 </style>
 </head>
-
 <body>
 
-<div id="app">
-  <h1>🔐 SecureScan v3.2 — Device Inspection Tool</h1>
-
-  <div id="info"></div>
-
-  <div id="terminal"></div>
-
-  <div id="progressBar">
-    <div id="progress"></div>
-  </div>
-
-  <div id="warning" class="blink">⚠ SECURITY BREACH DETECTED ⚠</div>
-</div>
-
-<div id="final">
-  😂 APRIL FOOL 😂 <br><br>
-  Bro... you really thought I hacked you? 😎<br>
-  Relax, your secrets are safe... for now 👀
+<div class="card">
+  <h1>😂 April Fool!</h1>
+  <p>You really scanned this QR 😜</p>
+  <button onclick="prank()">Click Me</button>
 </div>
 
 <script>
-  const terminal = document.getElementById("terminal");
-  const progress = document.getElementById("progress");
-  const warning = document.getElementById("warning");
-  const final = document.getElementById("final");
-  const info = document.getElementById("info");
-
-  function randomIP() {
-    return `${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}.${Math.floor(Math.random()*255)}`;
-  }
-
-  function getTime() {
-    return new Date().toLocaleTimeString();
-  }
-
-  // Fake device info
-  info.innerHTML = `
-    Device: Mobile Device <br>
-    IP Address: ${randomIP()} <br>
-    Location: Accessing... <br>
-  `;
-
-  const logs = [
-    "Initializing secure tunnel...",
-    "Connecting to device...",
-    "Bypassing firewall...",
-    "Access granted.",
-    "Scanning storage...",
-    "Extracting media files...",
-    "Uploading contacts...",
-    "Accessing camera module...",
-    "Injecting remote listener...",
-    "Finalizing transfer..."
-  ];
-
-  let i = 0;
-  let progressVal = 0;
-
-  function addLine(text) {
-    const div = document.createElement("div");
-    div.className = "line";
-    div.textContent = `[${getTime()}] ${text}`;
-    terminal.appendChild(div);
-    terminal.scrollTop = terminal.scrollHeight;
-  }
-
-  function run() {
-    if (i < logs.length) {
-      addLine(logs[i]);
-      progressVal += 10;
-      progress.style.width = progressVal + "%";
-      i++;
-      setTimeout(run, 1200);
-    } else {
-      triggerWarning();
-    }
-  }
-
-  function triggerWarning() {
-    warning.style.display = "block";
-    addLine("!!! Unauthorized activity detected !!!");
-    addLine("Encrypting personal files...");
-    
-    document.body.style.background = "#200";
-
-    setTimeout(showFinal, 4000);
-  }
-
-  function showFinal() {
-    document.getElementById("app").style.display = "none";
-    final.style.display = "block";
-    document.body.style.background = "black";
-  }
-
-  setTimeout(run, 1500);
+function prank() {
+  alert("Gotcha again 🤣 Happy April Fool!");
+}
 </script>
 
 </body>
